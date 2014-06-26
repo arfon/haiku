@@ -36,3 +36,10 @@ Dramatic System
 ----------------
 ```
 
+### Prior art
+
+Inspired by: 
+
+- https://github.com/dfm/arxiv-poet
+- https://github.com/jnxpn/haiku_generator
+
