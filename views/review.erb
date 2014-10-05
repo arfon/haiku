@@ -66,8 +66,11 @@
         <!-- List group -->
         <% haikus.each do |haiku| %>
         <ul class="list-group">
-          <li class="list-group-item"><%= haiku.inline_formatted %> <a href="#" class="btn btn-default btn-xs pull-right">Tweet it!</a>
-</li>
+          <% if haiku.published? %>
+          <li class="list-group-item list-group-item-success"><%= haiku.inline_formatted %></li>
+          <% else %>
+          <li class="list-group-item"><%= haiku.inline_formatted %> <a href="/tweet/<%= haiku.id %>" class="btn btn-default btn-xs pull-right">Tweet it!</a></li>
+          <% end %>
         </ul>
         <% end %>
       </div>
