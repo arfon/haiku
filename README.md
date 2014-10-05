@@ -1,4 +1,4 @@
-arXiv Haiku Zen
+Haiku Zen
 ======
 
 Accidental haiku, auto-generated from the arXiv from http://arxiv.org/list/astro-ph/new, currated for their zen-like properties by [http://twitter.com/arfon](@arfon) and posted at http://zen.arfon.org
