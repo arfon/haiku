@@ -77,13 +77,19 @@ xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
 data = XmlSimple.xml_in(xml_data)
 
-Haiku.delete_all
+puts "Working with #{paper_count = data['item'].count} papers"
+
 data['item'].each_with_index do |paper, index|
   abstract = paper['description'].first['content']
   url = paper['link'].first
 
   haiku = haiku_search(abstract, 'cmudict.txt')
   next if haiku.is_a? Array
-  Haiku.create(:url => url, :body => haiku)
-  puts index
+  if Haiku.find_by_url(url)
+    puts "Already parsed #{url}"
+  else
+    Haiku.create(:url => url, :body => haiku)
+  end
+
+  puts "#{index+1}/#{paper_count}"
 end
