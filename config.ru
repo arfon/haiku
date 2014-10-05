@@ -1,3 +1,3 @@
-require './haiku'
+require './web'
 
 run Sinatra::Application

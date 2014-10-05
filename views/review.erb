@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>EM Youth</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    /* Sticky footer styles
+    -------------------------------------------------- */
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+    body {
+      /* Margin bottom by footer height */
+      margin-bottom: 60px;
+    }
+
+    #footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      /* Set the fixed height of the footer here */
+      height: 60px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: auto;
+      max-width: 880px;
+      padding: 0 15px;
+    }
+    .container .text-muted {
+      margin: 20px 0;
+    }
+
+    a.actions{
+      float: right;
+      text-decoration: none;
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>arXiv Zen</h1>
+      </div>
+
+      <p class="lead">Click the button to publish</p>
+
+      <div class="panel panel-success">
+        <!-- Default panel contents -->
+        <div class="panel-heading">New Haikus</div>
+        <!-- List group -->
+        <% haikus.each do |haiku| %>
+        <ul class="list-group">
+          <li class="list-group-item"><%= haiku.inline_formatted %> <a href="#" class="btn btn-default btn-xs pull-right">Tweet it!</a>
+</li>
+        </ul>
+        <% end %>
+      </div>
+
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">arXiv Zen, part of #sciencehackday.</p>
+      </div>
+    </div>
+  </body>
+</html>

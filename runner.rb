@@ -1,7 +1,17 @@
 require 'xmlsimple'
 require 'net/http'
 require 'active_support/all'
+require 'mongo_mapper'
+require './haiku.rb'
+require 'pry'
+##
+# Configuration for Heroku
 
+uri = URI.parse(ENV['MONGOHQ_URL'])
+MongoMapper.connection = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+MongoMapper.database = uri.path.gsub(/^\//, '')
+
+##
 # See https://github.com/jnxpn/haiku_generator
 
 def haiku_search(incoming, arpabetfile)
@@ -48,7 +58,7 @@ def haiku_search(incoming, arpabetfile)
     end
 
     if success == true && !(bad_ending_words.include?(haiku[-2]))
-      titlecase = [] 
+      titlecase = []
       haiku.each do |h|
         if h == "\n"
           titlecase << h
@@ -67,13 +77,13 @@ xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
 data = XmlSimple.xml_in(xml_data)
 
+Haiku.delete_all
 data['item'].each_with_index do |paper, index|
   abstract = paper['description'].first['content']
   url = paper['link'].first
-    
-  haikus = haiku_search(abstract, 'cmudict.txt')
-  
-  puts "----------------"
-  puts url
-  puts haikus
+
+  haiku = haiku_search(abstract, 'cmudict.txt')
+  next if haiku.is_a? Array
+  Haiku.create(:url => url, :body => haiku)
+  puts index
 end
