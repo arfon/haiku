@@ -35,6 +35,29 @@ Either follow [@arxivzen](http://twitter.com/arxivzen) on Twitter for your daily
 
 ![screen shot 2014-10-05 at 1 52 10 pm](https://cloud.githubusercontent.com/assets/4483/4519933/88c0fc38-4cd1-11e4-85a7-e22d3396410d.png)
 
+## Look ma, there's an API!
+
+Kind of.
+
+```
+curl -H 'Accept: application/json' http://zen.arfon.org
+
+[
+ {"body":"Conditions For The \n Thermal Instability \n To Operate In \n",
+  "created_at":"2014-10-05T18:31:10Z",
+  "id":"54318e6e43dd37000200000d",
+  "status":"published",
+  "updated_at":"2014-10-05T18:51:56Z",
+  "url":"http://arxiv.org/abs/1410.0397"},
+ {"body":"Though This Groundbreaking \n Technical Achievement Will \n Be Its Own Reward \n",
+  "created_at":"2014-10-05T18:32:04Z",
+  "id":"54318ea443dd37000200002b",
+  "status":"published",
+  "updated_at":"2014-10-05T19:14:04Z",
+  "url":"http://arxiv.org/abs/1404.5623"}
+]  
+
+```
 
 ## Prior art
 
