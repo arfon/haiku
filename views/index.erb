@@ -61,6 +61,7 @@
     <div class="container">
       <% haikus.each do |haiku| %>
       <p class="lead"><%= haiku.body %></p>
+      <h5 class="pull-right"><a href="<%= haiku.url %>"><%= haiku.url %></a></h5>
       <% end %>
     </div>
 
