@@ -19,12 +19,24 @@ twitter = Twitter::REST::Client.new do |config|
   config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
 
+def authorized?
+  @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+  @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['USERNAME'], ENV['PASSWORD']]
+end
 
-use Rack::Auth::Basic, "Restricted Zen Area" do |username, password|
-  username == ENV['USERNAME'] and password == ENV['PASSWORD']
+def protected!
+  unless authorized?
+    response['WWW-Authenticate'] = %(Basic realm="Restricted Zen Area")
+    throw(:halt, [401, "Oops... we need your login name & password\n"])
+  end
+end
+
+get '/' do
+  "Zen"
 end
 
 get '/review' do
+  protected!
   haikus = Haiku.all
   erb :review, :locals => { :haikus => haikus }
 end
@@ -39,6 +51,7 @@ end
 # #astrohaiku http://arxiv.org/abs/1406.6384
 
 get '/tweet/:id' do
+  protected!
   haiku = Haiku.find(params[:id])
 
   begin
