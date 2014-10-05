@@ -48,8 +48,9 @@
       text-decoration: none;
     }
 
-    p{
+    p.lead{
       white-space: pre;
+      font-size: 50px
     }
 
     </style>
@@ -58,9 +59,6 @@
   <body>
     <!-- Begin page content -->
     <div class="container">
-      <div class="page-header">
-        <h1>arXiv Zen</h1>
-      </div>
       <% haikus.each do |haiku| %>
       <p class="lead"><%= haiku.body %></p>
       <% end %>
