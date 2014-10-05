@@ -32,7 +32,9 @@ def protected!
 end
 
 get '/' do
-  "Zen"
+  haikus = Haiku.published.all
+
+  erb :index, :locals => { :haikus => haikus }
 end
 
 get '/review' do
