@@ -13,4 +13,8 @@ class Haiku
   def inline_formatted
     body.strip.split("\n").map(&:strip).join(', ')
   end
+
+  def published?
+    status == 'published'
+  end
 end
