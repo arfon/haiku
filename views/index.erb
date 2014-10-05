@@ -48,9 +48,8 @@
       text-decoration: none;
     }
 
-    h1{
+    p{
       white-space: pre;
-
     }
 
     </style>
@@ -63,7 +62,7 @@
         <h1>arXiv Zen</h1>
       </div>
       <% haikus.each do |haiku| %>
-      <h1><%= haiku.body %></h1>
+      <p class="lead"><%= haiku.body %></p>
       <% end %>
 
 
