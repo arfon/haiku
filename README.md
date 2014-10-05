@@ -29,6 +29,13 @@ PASSWORD:            review_url_password
 USERNAME:            review_url_username
 ```
 
+## Zen
+
+Either follow [https://twitter.com/arxivzen](@arxivzen) on Twitter for your daily dose of Zen or head over to http://zen.arfon.org for a truly magical experience.
+
+![screen shot 2014-10-05 at 1 52 10 pm](https://cloud.githubusercontent.com/assets/4483/4519933/88c0fc38-4cd1-11e4-85a7-e22d3396410d.png)
+
+
 ## Prior art
 
 Inspired by: 
