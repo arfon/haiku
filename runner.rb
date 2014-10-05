@@ -3,7 +3,6 @@ require 'net/http'
 require 'active_support/all'
 require 'mongo_mapper'
 require './haiku.rb'
-require 'pry'
 
 ##
 # Configuration for Heroku

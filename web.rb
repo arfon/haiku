@@ -1,9 +1,9 @@
 require 'active_support/all'
 require 'mongo_mapper'
 require 'sinatra'
+require 'sinatra/respond_with'
 require 'twitter'
 require './haiku.rb'
-require 'pry'
 
 ##
 # Configuration for Heroku
@@ -34,7 +34,10 @@ end
 get '/' do
   haikus = Haiku.published.all
 
-  erb :index, :locals => { :haikus => haikus }
+  respond_with :index, :name => 'example' do |f|
+    f.html { erb :index, :locals => { :haikus => haikus } }
+    f.json { haikus.to_json}
+  end
 end
 
 get '/review' do
