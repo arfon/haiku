@@ -21,7 +21,7 @@ end
 
 
 use Rack::Auth::Basic, "Restricted Zen Area" do |username, password|
-  username == 'zen' and password == 'astrozen'
+  username == ENV['USERNAME'] and password == ENV['PASSWORD']
 end
 
 get '/review' do
