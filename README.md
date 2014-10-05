@@ -27,7 +27,6 @@ CONSUMER_SECRET:     twitter-consumer-secret
 MONGOHQ_URL:         mongodb://...
 PASSWORD:            review_url_password
 USERNAME:            review_url_username
-
 ```
 
 ## Prior art
