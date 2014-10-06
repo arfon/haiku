@@ -14,7 +14,7 @@ Why not?
 
 This Sinatra-based application that once per day pulls all the abstracts from the arXiv with [this script](https://github.com/arfon/haiku/blob/master/runner.rb).
 
-Haiku are generated based on a dictionary and Ruby script here: https://github.com/jnxpn/haiku_generator and listed in a review interface for me to post to Twitter.
+Haiku are generated based on a dictionary and [Ruby script](https://github.com/jnxpn/haiku_generator) and listed in a review interface for me to post to Twitter.
 
 ## Setup
 
