@@ -1,8 +1,19 @@
-require 'xmlsimple'
-require 'net/http'
 require 'active_support/all'
+require './haiku'
 require 'mongo_mapper'
-require './haiku.rb'
+require 'net/http'
+require 'twitter'
+require 'xmlsimple'
+
+##
+# Connect to Twitter to send a DM when the job has been run
+
+twitter = Twitter::REST::Client.new do |config|
+  config.consumer_key        = ENV['CONSUMER_KEY']
+  config.consumer_secret     = ENV['CONSUMER_SECRET']
+  config.access_token        = ENV['ACCESS_TOKEN']
+  config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+end
 
 ##
 # Configuration for Heroku
@@ -93,3 +104,5 @@ data['item'].each_with_index do |paper, index|
 
   puts "#{index+1}/#{paper_count}"
 end
+
+twitter.create_direct_message("@arfon", "Yo Smithy, I've just processed #{paper_count} papers.")

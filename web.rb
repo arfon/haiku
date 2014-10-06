@@ -3,7 +3,7 @@ require 'mongo_mapper'
 require 'sinatra'
 require 'sinatra/respond_with'
 require 'twitter'
-require './haiku.rb'
+require './haiku'
 
 ##
 # Configuration for Heroku
