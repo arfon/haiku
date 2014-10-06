@@ -19,10 +19,16 @@ twitter = Twitter::REST::Client.new do |config|
   config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
 
+##
+# Use Rack basic auth
+
 def authorized?
   @auth ||=  Rack::Auth::Basic::Request.new(request.env)
   @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['USERNAME'], ENV['PASSWORD']]
 end
+
+##
+# Helper method to protect endpoints
 
 def protected!
   unless authorized?
@@ -30,6 +36,9 @@ def protected!
     throw(:halt, [401, "Oops... we need your login name & password\n"])
   end
 end
+
+##
+# Homepage, with beautifully curated Haiku
 
 get '/' do
   haikus = Haiku.published.all
@@ -39,6 +48,9 @@ get '/' do
     f.json { haikus.to_json}
   end
 end
+
+##
+# Admin review interface
 
 get '/review' do
   protected!
