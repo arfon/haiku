@@ -8,9 +8,13 @@ Built as part of the [Science Hack Day (SF edition) 2014](http://sf.sciencehackd
 
 ## Why does this exist?
 
-Because ankle bracelets are embarrassing, demoralising and often more than is required for the monitoring of a youth offender's location. The idea here is that via simple Instagram updates (selfie anyone?) with location information it should be possible to keep track of the location of an individual who is out in the community on parole.
+Why not?
 
-This Sinatra-based application [receives pushes](http://instagram.com/developer/realtime/) from the Instagram API and then aggregates this information for a collection of users. 
+## How does it work?
+
+This Sinatra-based application that once per day pulls all the abstracts from the arXiv with [this script](https://github.com/arfon/haiku/blob/master/runner.rb).
+
+Haiku are generated based on a dictionary and Ruby script here: https://github.com/jnxpn/haiku_generator
 
 A task is then run every [~10 minutes](https://github.com/arfon/em-youth-api/blob/master/worker.rb) and if it's been more than an hour since the last check in then the user is reminded via an SMS that they need to post an update. At two hours since check in they are warned again (and further action could be taken).
 
@@ -61,8 +65,7 @@ curl -H 'Accept: application/json' http://zen.arfon.org
 
 ## Prior art
 
-Inspired by: 
+Inspired by:
 
 - https://github.com/dfm/arxiv-poet
 - https://github.com/jnxpn/haiku_generator
-
