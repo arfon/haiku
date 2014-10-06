@@ -14,9 +14,7 @@ Why not?
 
 This Sinatra-based application that once per day pulls all the abstracts from the arXiv with [this script](https://github.com/arfon/haiku/blob/master/runner.rb).
 
-Haiku are generated based on a dictionary and Ruby script here: https://github.com/jnxpn/haiku_generator
-
-A task is then run every [~10 minutes](https://github.com/arfon/em-youth-api/blob/master/worker.rb) and if it's been more than an hour since the last check in then the user is reminded via an SMS that they need to post an update. At two hours since check in they are warned again (and further action could be taken).
+Haiku are generated based on a dictionary and Ruby script here: https://github.com/jnxpn/haiku_generator and listed in a review interface for me to post to Twitter.
 
 ## Setup
 
