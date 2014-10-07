@@ -5,6 +5,10 @@ require 'sinatra/respond_with'
 require 'twitter'
 require './haiku'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 ##
 # Configuration for Heroku
 
