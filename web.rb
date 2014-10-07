@@ -71,12 +71,17 @@ end
 
 # #astrohaiku http://arxiv.org/abs/1406.6384
 
+def random_tags
+  possible_tags = %w{#astrozen #zen #breathe #nirvana #chillax #transcend #arxivenlightenment}
+  return possible_tags.sample(2).join(' ')
+end
+
 get '/tweet/:id' do
   protected!
   haiku = Haiku.find(params[:id])
 
   begin
-    twitter.update("#{haiku.body} \n #astrohaiku #{haiku.url}")
+    twitter.update("#{haiku.body} \n #{random_tags} #{haiku.url}")
     haiku.status = 'published'
     haiku.save
   rescue Twitter::Error => e
