@@ -9,7 +9,7 @@ class Haiku
   timestamps!
 
   scope :published, :status => 'published', :order => 'created_at DESC'
-
+  scope :sorted, :order => 'created_at DESC'
   def inline_formatted
     body.strip.split("\n").map(&:strip).join(', ')
   end

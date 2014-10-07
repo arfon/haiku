@@ -58,7 +58,7 @@ end
 
 get '/review' do
   protected!
-  haikus = Haiku.all
+  haikus = Haiku.sorted.all
   erb :review, :locals => { :haikus => haikus }
 end
 
