@@ -1,6 +1,6 @@
 require 'active_support/all'
-require './haiku'
 require 'mongo_mapper'
+require './haiku'
 require 'net/http'
 require 'twitter'
 require 'xmlsimple'
