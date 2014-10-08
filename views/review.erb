@@ -68,14 +68,14 @@
         <ul class="list-group">
           <% if haiku.published? %>
           <li class="list-group-item list-group-item-success"><%= haiku.inline_formatted %></li>
+          <% elsif haiku.new? %>
+          <li class="list-group-item list-group-item-info"><%= haiku.inline_formatted %> <a href="/tweet/<%= haiku.id %>" class="btn btn-default btn-xs pull-right">Tweet it!</a></li>
           <% else %>
           <li class="list-group-item"><%= haiku.inline_formatted %> <a href="/tweet/<%= haiku.id %>" class="btn btn-default btn-xs pull-right">Tweet it!</a></li>
           <% end %>
         </ul>
         <% end %>
       </div>
-
-
     </div>
 
     <div id="footer">
