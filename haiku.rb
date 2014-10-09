@@ -14,7 +14,7 @@ class Haiku
   scope :sorted, :order => 'created_at DESC'
 
   def new?
-    created_at > 12.hours.ago
+    self.created_at > 12.hours.ago
   end
 
   def inline_formatted
