@@ -13,8 +13,8 @@ class Haiku
   scope :published, :status => 'published', :order => 'created_at DESC'
   scope :sorted, :order => 'created_at DESC'
 
-  def new?
-    self.created_at > 12.hours.ago
+  def new_haiku?
+    created_at > 12.hours.ago
   end
 
   def inline_formatted
