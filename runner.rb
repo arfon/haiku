@@ -95,12 +95,11 @@ data['item'].each_with_index do |paper, index|
   url = paper['link'].first
 
   haiku = haiku_search(abstract, 'cmudict.txt')
+
   next if haiku.is_a? Array
-  if Haiku.find_by_url(url)
-    puts "Already parsed #{url}"
-  else
-    Haiku.create(:url => url, :body => haiku)
-  end
+  next if Haiku.find_by_url(url)
+
+  Haiku.create(:url => url, :body => haiku)
 
   puts "#{index+1}/#{paper_count}"
 end
