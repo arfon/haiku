@@ -81,7 +81,7 @@ get '/tweet/:id' do
   haiku = Haiku.find(params[:id])
 
   begin
-    twitter.update("#{haiku.body} \n#{haiku.url}\n#{random_tags} ")
+    twitter.update("#{haiku.body} \n#{haiku.url} http://zen.arfon.org\n#{random_tags} ")
     haiku.status = 'published'
     haiku.save
   rescue Twitter::Error => e
