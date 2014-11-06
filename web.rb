@@ -45,7 +45,7 @@ end
 # Homepage, with beautifully curated Haiku
 
 get '/' do
-  haikus = Haiku.published.limit(150)
+  haikus = Haiku.published.all
 
   respond_with :index, :name => 'example' do |f|
     f.html { erb :index, :locals => { :haikus => haikus } }
@@ -58,7 +58,7 @@ end
 
 get '/review' do
   protected!
-  haikus = Haiku.sorted.all
+  haikus = Haiku.sorted.limit(150)
   erb :review, :locals => { :haikus => haikus }
 end
 
