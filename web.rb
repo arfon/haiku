@@ -53,6 +53,18 @@ get '/' do
   end
 end
 
+get '/random' do
+  haikus = []
+  2.times do
+    seed = rand()
+    haikus << Haiku.random(seed).first
+  end
+
+  respond_with do |f|
+    f.json { haikus.to_json}
+  end
+end
+
 ##
 # Admin review interface
 

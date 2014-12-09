@@ -5,6 +5,7 @@ class Haiku
 
   key :url, String
   key :body, String
+  key :random, Float
   key :status, String, :default => 'unpublished'
   key :published_at, Time
 
@@ -12,6 +13,7 @@ class Haiku
 
   scope :published, :status => 'published', :order => 'created_at DESC'
   scope :sorted, :order => 'created_at DESC'
+  scope :random,  lambda { |number| where(:random.gte => number) }
 
   def new_haiku?
     created_at > 12.hours.ago
