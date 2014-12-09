@@ -13,7 +13,10 @@ class Haiku
 
   scope :published, :status => 'published', :order => 'created_at DESC'
   scope :sorted, :order => 'created_at DESC'
-  scope :random,  lambda { |number| where(:random.gte => number) }
+
+  def self.random(seed)
+    self.collection.find(random: {:$gte=> seed}).sort( { created_at: -1 } ).first
+  end
 
   def new_haiku?
     created_at > 12.hours.ago

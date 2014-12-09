@@ -57,7 +57,6 @@ get '/random' do
   haikus = []
   2.times do
     seed = rand()
-    puts "RAND IS #{seed}"
     haikus << Haiku.random(seed).first
   end
 
