@@ -54,11 +54,7 @@ get '/' do
 end
 
 get '/random' do
-  haikus = []
-  2.times do
-    seed = rand()
-    haikus << Haiku.random(seed).first
-  end
+  haikus =  Haiku.all.sample(2)
 
   respond_to do |f|
     f.on('*/*') { haikus.to_json }
