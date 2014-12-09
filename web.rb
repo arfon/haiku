@@ -62,7 +62,7 @@ get '/random' do
   end
 
   respond_to do |f|
-    f.on('*/*') { haikus.to_json}
+    f.on('*/*') { haikus.to_json }
   end
 end
 
