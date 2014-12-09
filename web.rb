@@ -60,8 +60,8 @@ get '/random' do
     haikus << Haiku.random(seed).first
   end
 
-  respond_with do |f|
-    f.json { haikus.to_json}
+  respond_to do |f|
+    f.on('*/*') { haikus.to_json}
   end
 end
 
