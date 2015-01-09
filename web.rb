@@ -81,7 +81,7 @@ end
 
 def random_tags
   possible_tags = %w{#astrozen #zen #breathe #nirvana #chillax #transcend}
-  return possible_tags.sample(1).join(' ')
+  return possible_tags.sample(2).join(' ')
 end
 
 get '/tweet/:id' do
@@ -89,7 +89,7 @@ get '/tweet/:id' do
   haiku = Haiku.find(params[:id])
 
   begin
-    twitter.update("#{haiku.body} \n#{haiku.url} http://zen.arfon.org\n#{random_tags} #aas225")
+    twitter.update("#{haiku.body} \n#{haiku.url} http://zen.arfon.org\n#{random_tags}")
     haiku.status = 'published'
     haiku.save
   rescue Twitter::Error => e
