@@ -104,4 +104,4 @@ data['item'].each_with_index do |paper, index|
   puts "#{index+1}/#{paper_count}"
 end
 
-twitter.create_direct_message("@arfon", "Yo Smithy, I've just processed #{paper_count} papers.")
+twitter.create_direct_message("@vrooje ", "Yo @vrooje , I've just processed #{paper_count} papers: http://zen.arfon.org/review")
