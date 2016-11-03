@@ -1,3 +1,9 @@
+⚠️⚠️⚠️⚠️⚠️ 
+
+Heads up this is no-longer in production anywhere. In [10350ae](https://github.com/arfon/haiku/commit/10350ae849bb7e3631f167393414733602d326ca) I added an export of all of the (32,753) haikus generated to date. These were collected between 2014-10-05 and 2016-11-02 
+
+⚠️⚠️⚠️⚠️⚠️
+
 Haiku Zen
 ======
 
